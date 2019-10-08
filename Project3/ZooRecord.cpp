@@ -53,7 +53,7 @@ ZooRecord::ZooRecord(std::string input_file_name) {
       domestic = false;
     }
     getline(ss, junk, ',');
-
+    
     Animal animal(animal_name, domestic, predator);   //now that I've extracted the 3 pieces of date needed, I can create all animal classes within the while loop
     add(animal);                                      //adds all animal objects to the items_ array in ArrayBay
   }
