@@ -32,56 +32,56 @@ ZooRecord::ZooRecord(std::string input_file_name) {
     std::stringstream ss(second_line);   //first i need to convert the stream to a stringstream, easier to traverse
     std::string str, pre, dom, air, aqu, shair, tee, fin, stail, ven, slegs, sclass;
     getline(ss, str, ',');               //allows to to specifically get one string from stream, first one is animal name
-    animal_name = str;
-    getline(ss, shair, ',');
-    if (shair == "1"){
-      hair = true;
-    }
+    animal_name = str;                   // i pull out animal name from the stream and store it in my variable
+    getline(ss, shair, ',');             //allows to to specifically get one string from stream,
+    if (shair == "1"){                   // i pull out hair from the stream and store it in my variable
+      hair = true;                       //since I can't directly convert from string to bool, if statements allow me
+    }                                    //to store the value into my bool
     if (shair == "0"){
       hair = false;
     }
-    for (int i = 0; i < 3; i++){
-      getline(ss, junk, ',');
+    for (int i = 0; i < 3; i++){         //the for loop allows me to go through the rest of the stream up to right before
+      getline(ss, junk, ',');            //next wanted characteristic
     }
-    getline(ss, air, ',');
+    getline(ss, air, ',');               //repeat steps from hair
     if (air == "1"){
       airborne = true;
     }
     if (air == "0") {
       airborne = false;
     }
-    getline(ss, aqu, ',');
+    getline(ss, aqu, ',');              //repeat steps from hair
     if (aqu == "1"){
       aquatic = true;
     }
     if (aqu == "0") {
       aquatic = false;
     }
-    getline(ss, pre, ',');
+    getline(ss, pre, ',');              //repeat steps from hair
     if (pre == "1"){
       predator = true;
     }
     if (pre == "0") {
       predator = false;
     }
-    getline(ss, tee, ',');
+    getline(ss, tee, ',');             //repeat steps from hair
     if (tee == "1"){
       teeth = true;
     }
     if (tee == "0") {
       teeth = false;
     }
-    for (int i = 0; i < 2; i++){
-      getline(ss, junk, ',');
+    for (int i = 0; i < 2; i++){       //the for loop allows me to go through the rest of the stream up to right before
+      getline(ss, junk, ',');          //next wanted characteristic
     }
-    getline(ss, ven, ',');
+    getline(ss, ven, ',');             //repeat steps from hair
     if (ven == "1"){
       venomous = true;
     }
     if (ven == "0") {
       venomous = false;
     }
-    getline(ss, fin, ',');
+    getline(ss, fin, ',');             //repeat steps from hair
     if (fin == "1"){
       fins = true;
     }
@@ -89,28 +89,28 @@ ZooRecord::ZooRecord(std::string input_file_name) {
       fins = false;
     }
     getline(ss, slegs, ',');
-    legs = std::stoi(slegs);
+    legs = std::stoi(slegs);           //can't convert directly from string to int, so use the stoi function
     getline(ss, stail, ',');
-    if (stail == "1"){
+    if (stail == "1"){                 //repeat steps from hair
       tail = true;
     }
     if (stail == "0") {
       tail = false;
     }
-    getline(ss, dom, ',');
+    getline(ss, dom, ',');            //repeat steps from hair
     if (dom == "1"){
       domestic = true;
     }
     if (dom == "0") {
       domestic = false;
     }
-    for (int i = 0; i < 1; i++){
-      getline(ss, junk, ',');
+    for (int i = 0; i < 1; i++){     //the for loop allows me to go through the rest of the stream up to right before
+      getline(ss, junk, ',');        //next wanted characteristic
     }
-    getline(ss, sclass);
+    getline(ss, sclass);             //get the class type variable
     //std::cout << sclass << sclass.length() << std::endl;
-    if (sclass[0] == '1'){
-      Mammal *mammal = new Mammal(animal_name, domestic, predator);
+    if (sclass[0] == '1'){           //if the value is 1 then create a mammal object using the stored characteristics
+      Mammal *mammal = new Mammal(animal_name, domestic, predator);  //dynamically stored mammal object
       if (hair){
         mammal->setHair();
       }
@@ -130,32 +130,32 @@ ZooRecord::ZooRecord(std::string input_file_name) {
         mammal->setTail();
       }
       mammal->setLegs(legs);
-      Animal *animal = mammal;
+      Animal *animal = mammal;  //animal pointer pointing to the mammal object
       //std::cout << "hi im inserting mammal" << std::endl;
-      insert(item_count_, animal);
+      insert(item_count_, animal);  //adding the animal pointer to the list using list function
       //insert into list
     }
-    if (sclass[0] == '2'){
-      Bird *bird = new Bird(animal_name, domestic, predator);
+    if (sclass[0] == '2'){    //if the value is 2 then create a bird object using the stored characteristics
+      Bird *bird = new Bird(animal_name, domestic, predator);  //dynamically stored bird object
       if (airborne){
         bird->setAirborne();
       }
       if (aquatic){
         bird->setAquatic();
       }
-      Animal *animal = bird;
+      Animal *animal = bird;   //animal pointer pointing to the bird object
       //std::cout << "hi im inserting bird" << std::endl;
-      insert(item_count_, animal);
+      insert(item_count_, animal);  //adding the animal pointer to the list
       //insert into list
     }
-    if (sclass[0] == '4'){
-      Fish *fish = new Fish(animal_name, domestic, predator);
+    if (sclass[0] == '4'){  //if the value is 4 then create a fish object
+      Fish *fish = new Fish(animal_name, domestic, predator);   //dynamically stored fish object
       if (venomous){
         fish->setVenomous();
       }
-      Animal *animal = fish;
+      Animal *animal = fish;   //animal pointer pointing to the bird object
       //std::cout << "hi im inserting fish" << std::endl;
-      insert(item_count_, animal);
+      insert(item_count_, animal);   //adding the animal pointer to the list
       //insert into list
     }
   }

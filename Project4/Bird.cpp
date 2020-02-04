@@ -58,23 +58,26 @@ void Bird::setAquatic() {          //allows to change bool value from default to
   aquatic_ = true;
 }
 
+/*
+@Pfuncton that prints out 3 sentences to display the mammal and all of its characteristics
+domestic, predator, airborne, aquatic*/
 void Bird::display() const{
-  std::string dom = " is not domestic";
-  std::string pre = "is not a predator";
-  std::string air = "is not airborne";
-  std::string aqu = "it is not aquatic";
+  std::string dom = " is not domestic";   //defaults domestic part of string to false
+  std::string pre = "is not a predator";  //defaults predator part of string to false
+  std::string air = "is not airborne";    //defaults airborne part of string to false
+  std::string aqu = "it is not aquatic";  //defaults aquatic part of string to false
 
   if (isDomestic()){
-    dom = " is domestic";
+    dom = " is domestic";      //sets characteristic to positive if the mammal has it
   }
   if (isPredator()){
-    pre = "it is a predator";
+    pre = "it is a predator";  //sets characteristic to positive if the mammal has it
   }
   if (isAirborne()){
-    air = "it is airborne";
+    air = "it is airborne";    //sets characteristic to positive if the mammal has it
   }
   if (isAquatic()){
-    aqu = "it is aquatic";
+    aqu = "it is aquatic";     //sets characteristic to positive if the mammal has it
   }
 
   std::cout << getName() << dom << " and " << pre << ",\n";

@@ -48,19 +48,22 @@ void Fish::setVenomous() {         //allows to change bool value from default to
   venomous_ = true;
 }
 
+/*
+@Pfuncton that prints out 3 sentences to display the mammal and all of its characteristics
+domestic, predator, venomous*/
 void Fish::display() const{
-  std::string dom = " is not domestic";
-  std::string pre = "is not a predator";
-  std::string ven = "it is not venomous";
+  std::string dom = " is not domestic";    //defaults domestic part of string to false
+  std::string pre = "is not a predator";   //defaults predator part of string to false
+  std::string ven = "it is not venomous";  //defaults venomous part of string to false
 
   if (isDomestic()){
-    dom = " is domestic";
+    dom = " is domestic";     //sets characteristic to positive if the mammal has it
   }
   if (isPredator()){
-    pre = "it is a predator";
+    pre = "it is a predator"; //sets characteristic to positive if the mammal has it
   }
   if (isVenomous()){
-    ven = "it is venomous";
+    ven = "it is venomous";   //sets characteristic to positive if the mammal has it
   }
 
   std::cout << getName() << dom << ", " << pre << ",\n";

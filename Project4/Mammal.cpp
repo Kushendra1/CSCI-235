@@ -108,39 +108,42 @@ void Mammal::setLegs(int legs) { //allows to change set value of 0 to any int. M
   legs_ = legs;
 }
 
+/*
+@Pfuncton that prints out 3 sentences to display the mammal and all of its characteristics
+domestic, predator, airborne, aquatic, hair, teeth, fins, tail, legs_*/
 void Mammal::display() const{
-  std::string dom = " is not domestic";
-  std::string pre = "is not a predator";
-  std::string air = "it is not airborne";
-  std::string aqu = "it is not aquatic";
-  std::string hair = "it has no hair, ";
-  std::string tee = "no teeth, ";
-  std::string fin = "no fins, ";
-  std::string tail = "no tail";
+  std::string dom = " is not domestic";    //defaults domestic part of string to false
+  std::string pre = "is not a predator";   //defaults predator part of string to false
+  std::string air = "it is not airborne";  //defaults airborne part of string to false
+  std::string aqu = "it is not aquatic";   //defaults aquatic part of string to false
+  std::string hair = "it has no hair, ";   //defaults hair part of string to false
+  std::string tee = "no teeth, ";          //defaults teeth part of string to false
+  std::string fin = "no fins, ";           //defaults fins part of string to false
+  std::string tail = "no tail";            //defaults tail part of string to fals
 
   if (isDomestic()){
-    dom = " is domestic";
+    dom = " is domestic";      //sets characteristic to positive if the mammal has it
   }
   if (isPredator()){
-    pre = "it is a predator";
+    pre = "it is a predator";  //sets characteristic to positive if the mammal has it
   }
   if (isAirborne()){
-    air = "it is airborne";
+    air = "it is airborne";    //sets characteristic to positive if the mammal has it
   }
   if (isAquatic()){
-    aqu = "it is aquatic";
+    aqu = "it is aquatic";     //sets characteristic to positive if the mammal has it
   }
   if (hasHair()){
-    hair = "it has hair, ";
+    hair = "it has hair, ";    //sets characteristic to positive if the mammal has it
   }
   if (isToothed()){
-    tee = "teeth, ";
+    tee = "teeth, ";           //sets characteristic to positive if the mammal has it
   }
   if (hasFins()){
-    fin = "fins, ";
+    fin = "fins, ";            //sets characteristic to positive if the mammal has it
   }
   if (hasTail()){
-    tail = "tail";
+    tail = "tail";             //sets characteristic to positive if the mammal has it
   }
 
   std::cout << getName() << dom << " and " << pre << ",\n";
