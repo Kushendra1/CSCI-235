@@ -1,0 +1,6 @@
+2 3 +  
+Precondition Violated Exception: Unbalanced parenthesis
+5 3 + 2 * 
+Precondition Violated Exception: Unknown operator
+Precondition Violated Exception: Unbalanced parenthesis
+Precondition Violated Exception: Unknown operator
